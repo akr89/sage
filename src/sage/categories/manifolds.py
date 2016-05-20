@@ -1,6 +1,9 @@
 r"""
 Manifolds
 """
+
+        #!# This file has been ammended for SageManifolds 0.9
+
 #*****************************************************************************
 #  Copyright (C) 2015 Travis Scrimshaw <tscrim at ucdavis.edu>
 #
@@ -45,7 +48,9 @@ class Manifolds(Category_over_base_ring):
             sage: C = Manifolds(RR)
             sage: TestSuite(C).run(skip="_test_category_over_bases")
         """
-        if base not in Fields().Topological():
+        #!# Changed for SageManifolds 0.9 only
+        # if base not in Fields().Topological():
+        if base not in Fields():
             raise ValueError("base must be a topological field")
         Category_over_base_ring.__init__(self, base, name)
 
@@ -58,7 +63,9 @@ class Manifolds(Category_over_base_ring):
             sage: Manifolds(RR).super_categories()
             [Category of topological spaces]
         """
-        return [Sets().Topological()]
+        #!# Changed for SageManifolds 0.9 only
+        # return [Sets().Topological()]
+        return [Sets()]
 
     def additional_structure(self):
         r"""
